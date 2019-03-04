@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rrange.c                                        :+:      :+:    :+:   */
+/*   ft_list_size.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/31 19:07:13 by kbelov            #+#    #+#             */
-/*   Updated: 2019/03/03 13:51:20 by kbelov           ###   ########.fr       */
+/*   Created: 2019/03/03 01:08:56 by kbelov            #+#    #+#             */
+/*   Updated: 2019/03/03 01:42:05 by kbelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "ft_list.h"
 
-int			*ft_rrange(int start, int end)
+int			ft_list_size(t_list *begin_list)
 {
-	int		*arr;
 	int		len;
-	int		i;
 
-	i = 0;
-	len = start - end;
-	if (len < 0)
-		len = -len;
-	arr = (int *)malloc(sizeof(int) * (len + 1));
-	if (!arr)
-		return (NULL);
-	while (i <= len)
+	len = 0;
+	while (begin_list)
 	{
-		if (start >= end)
-			arr[i] = end + i;
-		else if (end > start)
-			arr[i] = end - i;
-		i++;
+		len++;
+		begin_list = begin_list->next;
 	}
-	return (arr);
+	return (len);
 }
