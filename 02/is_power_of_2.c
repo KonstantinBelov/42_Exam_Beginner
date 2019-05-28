@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   is_power_of_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/29 12:47:54 by kbelov            #+#    #+#             */
-/*   Updated: 2019/01/29 13:02:49 by kbelov           ###   ########.fr       */
+/*   Created: 2019/05/05 23:00:47 by kbelov            #+#    #+#             */
+/*   Updated: 2019/05/05 23:24:57 by kbelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+//#include <stdlib.h>
+//#include <stdio.h>
 
-void		ft_putstr(char *str)
+int	    is_power_of_2(unsigned int n)
 {
-	int		i;
-
-	i = 0;
-	while (str[i])
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
+	if (n == 1)
+		return (1);
+	else if (n == 0 || n % 2 != 0)
+		return (0);
+	else
+		return(is_power_of_2(n / 2));
 }
-
-/* This is for testing only
-
-int			main(int ac, char *av[])
+/*
+int		main(int ac, char *av[])
 {
-	if (ac == 2)
-		ft_putstr(av[1]);
+	ac = 0;
+	
+	printf("%d\n", is_power_of_2(atoi(av[1])));
 	return (0);
 }
-*/

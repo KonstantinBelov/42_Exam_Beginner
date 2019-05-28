@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_power_of_2.c                                    :+:      :+:    :+:   */
+/*   ft_list_remove_if.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/31 00:54:32 by kbelov            #+#    #+#             */
-/*   Updated: 2019/01/31 01:15:49 by kbelov           ###   ########.fr       */
+/*   Created: 2019/03/11 12:38:45 by kbelov            #+#    #+#             */
+/*   Updated: 2019/04/13 23:03:02 by kbelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include "ft_list.h"
 
-int			is_power_of_2(unsigned int n)
+void		ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 {
-	while (n > 2)
-		n /= 2;
-	if (n == 2)
-		return (1);
-	return (0);
-}
-/*
-int			main(void)
-{
-	unsigned int	n;
-
-	n = 128;
-	printf("%d\n", is_power_of_2(n));
-	return (0);
+	t_list	*current_list;
+	t_list	*next_list
+	
+	if (!begun_list || !data_ref)
+		exit ;
+	current_list = begin_list;
+	next_list = begin_list->next;
+	while (current_list->next)
+	{
+		if (!cmp(current_list->data, data_ref))
+		{
+			
+		}
+		else
+			current_list = current_list->next;
+	}
 }

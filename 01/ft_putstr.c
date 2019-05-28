@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ulstr.c                                            :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/25 18:19:05 by exam              #+#    #+#             */
-/*   Updated: 2019/01/26 21:07:58 by kbelov           ###   ########.fr       */
+/*   Created: 2019/05/13 22:50:45 by kbelov            #+#    #+#             */
+/*   Updated: 2019/05/13 23:01:30 by kbelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_ulstr(char *src)
+void	ft_putstr(char *s)
 {
-	int		i;
-
-	i = 0;
-	while (src[i])
+	if (s)
 	{
-		if (src[i] >= 65 && src[i] <= 90)
-			src[i] += 32;
-		else if (src[i] >= 97 && src[i] <= 122)
-			src[i] -= 32;
-		write(1, &src[i], 1);
-		i++;
+		while(*s != '\0')
+			write(1, s++, 1);
 	}
 }
 
-int		main(int argc, char **argv)
+/* **************************************
+int		main(int ac, char *av[])
 {
-	if (argc == 2)
-		ft_ulstr(argv[1]);
-	write(1, "\n", 1);
+	if (ac >= 2)
+		ft_putstr(av[1]);
 	return (0);
 }
+* ***************************************/
